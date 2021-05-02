@@ -22,6 +22,9 @@ export const S_Link = styled.a`
       cursor: pointer;
       border: 1px solid white;
     }
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
   }
 `;
 

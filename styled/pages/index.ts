@@ -37,17 +37,19 @@ export const ListBody = styled.p`
 
 export const ListLink = styled.a`
   display: inline-block;
+
   padding: 5px 10px;
   margin-left: 10px;
   margin-bottom: 10px;
 
   font-size: 0.8rem;
 
+  color: white;
+  background-color: grey;
+  border-radius: 5px;
+
   &:hover {
     cursor: pointer;
-    color: white;
-
-    background-color: grey;
-    border-radius: 5px;
+    background-color: black;
   }
 `;
