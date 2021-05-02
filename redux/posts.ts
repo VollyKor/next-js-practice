@@ -64,8 +64,8 @@ export const postsSlice = createSlice({
 
       // Add post
       // ==============================================
-      .addCase(addPostThunk.fulfilled, (state, action) => {
-        console.log(action)
+      .addCase(addPostThunk.fulfilled, (state, { payload }) => {
+        state.entities = [...state.entities, payload]
       })
 
       //  Handle reject
