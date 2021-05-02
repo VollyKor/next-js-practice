@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Title = styled.h1`
   text-align: center;
-`;
+`
 
 export const Body = styled.p`
   text-align: justify;
@@ -10,7 +10,7 @@ export const Body = styled.p`
   &::first-letter {
     margin-left: 15px;
   }
-`;
+`
 
 export const StyledLink = styled.a`
   display: inline-block;
@@ -26,4 +26,4 @@ export const StyledLink = styled.a`
     cursor: pointer;
     border: 2px solid black;
   }
-`;
+`

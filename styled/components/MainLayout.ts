@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const List = styled.ul`
   display: flex;
@@ -8,7 +8,7 @@ export const List = styled.ul`
   @media screen and (min-width: 576px) {
     flex-direction: row;
   }
-`;
+`
 
 export const S_Link = styled.a`
   padding: 10px 15px;
@@ -26,9 +26,9 @@ export const S_Link = styled.a`
       margin-right: 15px;
     }
   }
-`;
+`
 
 export const Header = styled.header`
   padding: 15px 0;
   background-color: black;
-`;
+`

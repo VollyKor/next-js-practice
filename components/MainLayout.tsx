@@ -1,10 +1,14 @@
-import Link from 'next/link';
-import NextNprogress from 'nextjs-progressbar';
+import Link from 'next/link'
+import NextNprogress from 'nextjs-progressbar'
 
-import { Container } from '../styled/components/Container';
-import { S_Link, Header, List } from '../styled/components/MainLayout';
+import { Container } from '../styled/components/Container'
+import { S_Link, Header, List } from '../styled/components/MainLayout'
 
-export default function MainLayout({ children }) {
+export interface Props {
+  children: React.ReactNode
+}
+
+export default function MainLayout({ children }: Props): JSX.Element {
   return (
     <>
       <Header>
@@ -16,6 +20,7 @@ export default function MainLayout({ children }) {
                 <S_Link>Latest Posts</S_Link>
               </Link>
               <Link href="/posts/new">
+                {/* <a>add post</a> */}
                 <S_Link>Add Post</S_Link>
               </Link>
             </List>
@@ -26,5 +31,5 @@ export default function MainLayout({ children }) {
         <main>{children}</main>
       </Container>
     </>
-  );
+  )
 }

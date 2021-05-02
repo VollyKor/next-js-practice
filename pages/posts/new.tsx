@@ -1,29 +1,30 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addPostThunk } from '../../redux/posts';
-import { useRouter } from 'next/router';
+import React, { SyntheticEvent, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addPostThunk } from '../../redux/posts'
+import { useRouter } from 'next/router'
 
-import * as S from '../../styled/pages/new';
+import * as S from '../../styled/pages/new'
+import { TsetValue } from '../../typescript/types'
 
-export default function AddPost() {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+export default function AddPost(): JSX.Element {
+  const [title, setTitle] = useState('')
+  const [body, setBody] = useState('')
 
-  const router = useRouter();
-  const dispatch = useDispatch();
+  const router = useRouter()
+  const dispatch = useDispatch()
 
-  function setValue(e) {
-    return e.currentTarget.value;
+  const setValue: TsetValue = (e) => {
+    return e.currentTarget.value
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    dispatch(addPostThunk({ title, body }));
+  function handleSubmit(e: SyntheticEvent): void {
+    e.preventDefault()
+    dispatch(addPostThunk({ title, body }))
 
-    setTitle('');
-    setBody('');
+    setTitle('')
+    setBody('')
 
-    router.push('/');
+    router.push('/')
   }
 
   return (
@@ -42,5 +43,5 @@ export default function AddPost() {
         <S.Button type="submit">Add Post</S.Button>
       </S.Form>
     </>
-  );
+  )
 }

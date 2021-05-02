@@ -1,33 +1,32 @@
-import { default as req } from 'axios';
+import { default as req } from 'axios'
+import { InewPost, Ipost } from '../typescript/types'
 
-req.defaults.baseURL = 'https://simple-blog-api.crew.red';
+req.defaults.baseURL = 'https://simple-blog-api.crew.red'
 
-export const getPosts = async () => {
+export const getPosts = async (): Promise<Ipost[]> => {
   try {
-    const { data } = await req.get('/posts');
-    return data;
+    const { data } = await req.get<Ipost[]>('/posts')
+    return data
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.message)
   }
-};
+}
 
-export const getPostsById = async (id: string | number) => {
+export const getPostsById = async (id: string | number): Promise<Ipost> => {
   try {
-    const { data } = await req.get(`/posts/${id}`);
-    console.log(data);
-    return data;
+    const { data } = await req.get<Ipost>(`/posts/${id}`)
+    return data
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.message)
   }
-};
+}
 
-export const addPost = async (post) => {
+export const addPost = async (post: InewPost): Promise<Ipost> => {
   try {
-    const newPost = await req.post(`/posts`, post);
-    console.log(newPost);
+    const { data } = await req.post<Ipost>(`/posts`, post)
 
-    return post;
+    return data
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error(error.message)
   }
-};
+}

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 export const PageTitle = styled.h1`
   text-align: center;
-`;
+`
 
 export const List = styled.ul`
   display: grid;
@@ -11,19 +11,19 @@ export const List = styled.ul`
   @media screen and (min-width: 1180px) {
     grid-template-columns: repeat(2, auto);
   }
-`;
+`
 
 export const ListItem = styled.li`
   border: 1px solid grey;
   border-radius: 5px;
-`;
+`
 
 export const ListTitle = styled.p`
   margin: 10px 10px;
 
   font-weight: 600;
   text-align: center;
-`;
+`
 export const ListBody = styled.p`
   margin: 10px 10px;
   font-size: 0.8rem;
@@ -33,7 +33,7 @@ export const ListBody = styled.p`
   &::first-letter {
     margin-left: 10px;
   }
-`;
+`
 
 export const ListLink = styled.a`
   display: inline-block;
@@ -52,4 +52,4 @@ export const ListLink = styled.a`
     cursor: pointer;
     background-color: black;
   }
-`;
+`

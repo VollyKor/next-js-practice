@@ -1,9 +1,20 @@
-import { DefaultRootState } from 'react-redux';
-
-export interface State extends DefaultRootState {
+export interface State {
   posts: {
-    posts: any[];
-    loading: boolean;
-    error: any;
-  };
+    entities: Ipost[]
+    loading: boolean
+    error: any
+  }
 }
+
+export interface InewPost {
+  title: string
+  body: string
+}
+
+export interface Ipost extends InewPost {
+  id: number | string
+}
+
+export type TsetValue = (
+  e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+) => string

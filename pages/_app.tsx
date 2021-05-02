@@ -1,9 +1,9 @@
-import { wrapper } from '../redux/store';
+import { wrapper } from '../redux/store'
 
-import { GlobalStyles } from '../styled/Globalstyles';
-import MainLayout from '../components/MainLayout';
+import { GlobalStyles } from '../styled/Globalstyles'
+import MainLayout from '../components/MainLayout'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }): JSX.Element {
   return (
     <>
       <GlobalStyles />
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </MainLayout>
     </>
-  );
+  )
 }
 
-export default wrapper.withRedux(MyApp);
+export default wrapper.withRedux(MyApp)

@@ -1,25 +1,25 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Title = styled.h1`
   text-align: center;
-`;
+`
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const Label = styled.label`
   width: 100%;
   text-align: center;
-`;
+`
 
 export const LabelText = styled.span`
   display: block;
   text-align: center;
   margin-bottom: 15px;
-`;
+`
 
 export const Input = styled.input`
   box-sizing: border-box;
@@ -29,7 +29,7 @@ export const Input = styled.input`
 
   width: 100%;
   max-width: 600px;
-`;
+`
 
 export const TextArea = styled.textarea`
   box-sizing: border-box;
@@ -38,7 +38,7 @@ export const TextArea = styled.textarea`
 
   width: 100%;
   max-width: 600px;
-`;
+`
 
 export const Button = styled.button`
   margin-top: 15px;
@@ -56,4 +56,4 @@ export const Button = styled.button`
     cursor: pointer;
     background-color: black;
   }
-`;
+`

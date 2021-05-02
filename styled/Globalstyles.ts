@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 html{
@@ -15,4 +15,4 @@ html{
     padding: 0;
     list-style: none;
   }
-`;
+`
