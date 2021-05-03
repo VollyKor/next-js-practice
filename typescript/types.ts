@@ -1,9 +1,11 @@
 export interface State {
-  posts: {
-    entities: Ipost[]
-    loading: boolean
-    error: any
-  }
+  posts: InitialState
+}
+
+export interface InitialState {
+  entities: IpostWithComments[]
+  loading: boolean
+  error: any
 }
 
 export interface InewPost {
@@ -13,6 +15,18 @@ export interface InewPost {
 
 export interface Ipost extends InewPost {
   id: number | string
+}
+
+export interface InewComment {
+  postId: number | string
+  body: string
+}
+
+export interface Icomment extends InewComment {
+  id: number
+}
+export interface IpostWithComments extends Ipost {
+  comments?: Icomment[]
 }
 
 export type TsetValue = (

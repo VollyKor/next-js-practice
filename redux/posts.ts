@@ -1,7 +1,7 @@
 import { createAction, createAsyncThunk, createSlice, isRejected } from '@reduxjs/toolkit'
-import { getPosts, getPostsById, addPost } from '../service/requestPosts'
+import { getPosts, getPostsById, addPost, addComment } from '../service/requestPosts'
 import { HYDRATE } from 'next-redux-wrapper'
-import { InewPost } from '../typescript/types'
+import { InewComment, InewPost, InitialState } from '../typescript/types'
 
 const hydrate = createAction(HYDRATE)
 
@@ -35,9 +35,22 @@ export const addPostThunk = createAsyncThunk(
   }
 )
 
+export const addNewComment = createAsyncThunk(
+  'posts/addComment',
+  async (comment: InewComment, { rejectWithValue }) => {
+    try {
+      return await addComment(comment)
+    } catch (error) {
+      return rejectWithValue(error)
+    }
+  }
+)
+
+const initialState: InitialState = { entities: [], loading: false, error: null }
+
 export const postsSlice = createSlice({
   name: 'posts',
-  initialState: { entities: [], loading: false, error: null },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -66,6 +79,24 @@ export const postsSlice = createSlice({
       // ==============================================
       .addCase(addPostThunk.fulfilled, (state, { payload }) => {
         state.entities = [...state.entities, payload]
+      })
+
+      // Add comment
+      // ==============================================
+      .addCase(addNewComment.fulfilled, (state, { payload }) => {
+        console.log('payload', payload)
+
+        const post = state.entities.find((el) => el.id === payload.postId)
+        console.log('post', post)
+
+        post.comments = [payload, ...post.comments]
+
+        const updatedPosts = state.entities.map((el) => {
+          if (el.id === payload.id) return post
+          return el
+        })
+
+        state.entities = updatedPosts
       })
 
       //  Handle reject
